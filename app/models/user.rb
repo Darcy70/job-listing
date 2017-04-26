@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :resumes
+
 
    validates :wage_upper_bound, presence: true
    validates :wage_lower_bound, presence: true
