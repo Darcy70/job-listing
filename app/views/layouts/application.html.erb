@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Job Listing </title>
+        <title>This is the testing title </title>
         <%= csrf_meta_tags %>
 
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,13 +9,16 @@
     </head>
 
     <body>
-
+        <%= render "common/flashes" %>
         <div class="container-fluid">
-            <%= render "common/navbar" %>
-            <%= render "common/flashes" %>
-            <%= yield %>
+          <div class="row">
+
+             <%= yield %>
+         </div>
+
         </div>
         <%= render "common/footer" %>
-
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+         <link rel="shortcut icon" href="/images/favicon.ico">
    </body>
 </html>
