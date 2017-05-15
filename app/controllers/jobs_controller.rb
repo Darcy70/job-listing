@@ -10,7 +10,7 @@ class JobsController < ApplicationController
   end
 
   def edit
-    
+
 
   end
 end
