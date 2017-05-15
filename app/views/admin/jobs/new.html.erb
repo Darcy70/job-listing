@@ -1,2 +1,13 @@
-<h1>Admin::Jobs#new</h1>
-<p>Find me in app/views/admin/jobs/new.html.erb</p>
+<h1> Add a job </h1>
+
+<%= simple_form_for @job do |f| %>
+
+<%= f.input :title %>
+<%= f.input :description %>
+<%= f.input :contact_email %>
+<%= f.input :wage_lower_bound %>
+<%= f.input :wage_upper_bound %>
+<%= f.input :is_hidden , :label => false, as: :radio_buttons, collection:  [['显示', false], ['隐藏', true]] %>
+
+  <%= f.submit "Submit" %>
+<% end %>
