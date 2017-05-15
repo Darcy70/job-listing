@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'jobs/index'
+
+  get 'jobs/new'
+
  root "welcome#index"
 
 
