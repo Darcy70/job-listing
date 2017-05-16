@@ -2,11 +2,11 @@
 
 <%= simple_form_for @job do |f| %>
 
-<%= f.input :title %>
-<%= f.input :description %>
-<%= f.input :contact_email %>
-<%= f.input :wage_lower_bound %>
-<%= f.input :wage_upper_bound %>
+<%= f.input :title, label: "Job's Title", autofocus: true %>
+<%= f.input :description, hint: "Please fill in a detailed DB."%>
+<%= f.input :contact_email, placeholder: "Please fill the valide email adress" %>
+<%= f.input :wage_lower_bound, as: :integer %>
+<%= f.input :wage_upper_bound, as: :integer %>
 <%= f.input :is_hidden , :label => false, as: :radio_buttons, collection:  [['显示', false], ['隐藏', true]] %>
 
   <%= f.submit "Submit" %>
