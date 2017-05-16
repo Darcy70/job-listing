@@ -8,7 +8,7 @@
 #  contact_email    :string
 #  wage_lower_bound :integer
 #  wage_upper_bound :integer
-#  is_hidden        :boolean
+#  is_hidden        :boolean          default(FALSE)
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #

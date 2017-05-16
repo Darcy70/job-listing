@@ -3,7 +3,7 @@ class JobsController < ApplicationController
   before_action :authenticate_user!, except:[:index, :show]
 
   def index
-    @jobs = Job.all
+    @jobs = Job.where(is_hidden: false).newest_first
   end
 
   def show
@@ -17,7 +17,7 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     if @job.save
-      redirect_to(job_path)
+      redirect_to(jobs_path)
     else
       render('new')
     end

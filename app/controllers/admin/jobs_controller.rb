@@ -4,7 +4,7 @@ class Admin::JobsController < ApplicationController
   before_action :is_admin?
 
   def index
-    @jobs = Job.all
+    @jobs = Job.all.newest_first
   end
 
   def show

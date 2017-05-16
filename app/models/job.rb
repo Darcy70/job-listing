@@ -8,12 +8,15 @@
 #  contact_email    :string
 #  wage_lower_bound :integer
 #  wage_upper_bound :integer
-#  is_hidden        :boolean
+#  is_hidden        :boolean          default(FALSE)
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #
 
 class Job < ApplicationRecord
+
+  scope :newest_first, lambda { order("created_at DESC")}
+
 
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
 
@@ -25,8 +28,10 @@ class Job < ApplicationRecord
 
   validates_numericality_of :wage_lower_bound, :wage_upper_bound
 
-  validates :wage_lower_bound, presence: { message: "You need to provide a lower bound"}, numericality:{ greater_than: 0, message: "It has to be above the zero",less_than: :wage_upper_bound, message: "It has to be below the upper bound"}
+  validates :wage_lower_bound, presence: { message: "You need to provide a lower bound"}, numericality:{ greater_than: 0, message: "It has to be above the zero"}
+  validates :wage_lower_bound, numericality: { less_than: :wage_upper_bound, message: "It has to be below the upper bound"}
   validates :wage_upper_bound, presence: { message: "You need to provide a upper bound"}, numericality:{ greater_than: :wage_lower_bound, message: "It has to be above the lower bound"}
+
 
 
 
