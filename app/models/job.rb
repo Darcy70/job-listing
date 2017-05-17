@@ -32,7 +32,14 @@ class Job < ApplicationRecord
   validates :wage_lower_bound, numericality: { less_than: :wage_upper_bound, message: "It has to be below the upper bound"}
   validates :wage_upper_bound, presence: { message: "You need to provide a upper bound"}, numericality:{ greater_than: :wage_lower_bound, message: "It has to be above the lower bound"}
 
+  def publish!
+    self.is_hidden = false
+    self.save
+  end
 
-
+  def hide!
+    self.is_hidden = true
+    self.save
+  end
 
 end
