@@ -5,14 +5,7 @@ class Admin::JobsController < ApplicationController
   layout 'admin'
 
   def index
-    @jobs = case params[:order]
-    when "Lowerbound"
-      Job.published.order("wage_lower_bound DESC")
-    when "Upperbound"
-      Job.published.order("wage_upper_bound DESC")
-    else
-      Job.published.newest_first
-    end
+    @jobs = Job.all.newest_first
   end
 
   def show

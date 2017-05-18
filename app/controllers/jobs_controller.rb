@@ -3,7 +3,14 @@ class JobsController < ApplicationController
   before_action :authenticate_user!, except:[:index, :show]
 
   def index
-    @jobs = Job.where(is_hidden: false).newest_first
+    @jobs = case params[:order]
+    when "Lowerbound"
+      Job.published.order("wage_lower_bound DESC")
+    when "Upperbound"
+      Job.published.order("wage_upper_bound DESC")
+    else
+      Job.published.newest_first
+    end
   end
 
   def show
