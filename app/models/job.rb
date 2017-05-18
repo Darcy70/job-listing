@@ -15,9 +15,10 @@
 
 class Job < ApplicationRecord
 
+  has_many :resumes
   has_many :users, through: :resumes
 
-  scope :newest_first, lambda { order("created_at DESC")}
+
   scope :published, -> { where(is_hidden: false)}
 
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
