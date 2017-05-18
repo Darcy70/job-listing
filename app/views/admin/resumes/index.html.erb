@@ -1,4 +1,4 @@
-<h2> Job "<%= @job.title %>"'s received resumes'</h2>
+<h2> Job "<%= @job.title %>"'s received resumes </h2>
 
 <hr>
-<%= redner partial: "resume", collection: @resumes, as: :resume %> 
+<%= render partial: "resume", collection: @resumes, as: :resume %>
