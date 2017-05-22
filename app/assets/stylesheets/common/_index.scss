@@ -126,6 +126,7 @@ p.index-contect{
     margin-top: 60px;
     margin-bottom: 20px;
     font-size: 18px;
+    font-weight: bold;
     letter-spacing: 1px;
 }
 
@@ -215,4 +216,111 @@ p.index-contect{
 
 .talk-about-us .carousel-indicators {
     bottom: -70px;
+}
+
+// Partnership part
+
+.our-brand{
+    background-color: #F2F2F2;
+    padding-top: 60px;
+    padding-bottom: 30px;
+    img{
+      margin: 25px 15px 35px 15px;
+      width: 150px;
+    }
+
+}
+
+// Conlusion of the starting now part
+
+.support{
+    text-align: center;
+    height: 200px;
+    background: linear-gradient(rgba( 0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+      image_url("start.jpg") no-repeat scroll top center/ cover;
+
+  a {
+    margin-top: 70px;
+  }
+}
+
+// The footer part
+.footer{
+    text-align: center;
+    min-height: 250px;
+    background-color: #333;
+    padding: 15px 0;
+    color: #fff;
+
+    h4{
+        font-size: 16px;
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+
+    p{
+        font-size: 14px;
+    }
+
+    li{
+      margin-top: 5px;
+    }
+
+    a{
+      text-decoration:none;
+      color: #ccc;
+    }
+    a:hover,
+    a:active,
+    a:focus{
+      color: #dcdcdc;
+    }
+
+    img{
+      width: 35px;
+      margin: 5px;
+    }
+
+    img:hover{
+      opacity: 0.75;
+    }
+
+    p{
+      a{
+        color: #4A6BB5;
+      }
+      a:hover{
+        color: #35CCC6;
+      }
+    }
+
+    .footer-box{
+      text-align: left !important;
+      margin-top: 15px;
+    }
+}
+
+.footer-content{
+  font-size: 16px;
+  font-family: inherit;
+  color: #ddd;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  font-weight: 200;
+
+  img{
+    width: 25px;
+    margin-left: 7.5px;
+    margin-right: -0.1px;
+  }
+  img:hover{
+    opacity: 1;
+  }
+
+}
+
+//  Get rid of the margin
+
+.container > .row {
+  margin: 0;
 }
