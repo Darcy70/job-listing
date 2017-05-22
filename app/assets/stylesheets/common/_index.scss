@@ -135,3 +135,84 @@ p.index-contect{
     line-height: 22px;
     margin: 40px 25px 40px 25px;
 }
+
+// The most wanted part
+.our-experts .category-list{
+  text-align: center;
+  padding-bottom: 10px;
+
+  h3{
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 18px;
+  }
+  p{
+    letter-spacing: 1px;
+    color: #666;
+  }
+}
+
+.our-experts .category-list:hover{
+  .expert-box{
+    border: 2px solid #4A6BB5;
+  }
+  h3{
+    color: #4A6BB5;
+  }
+}
+
+
+// Talk About us - the slide part
+
+.talk-about-us{
+    padding-bottom: 160px;
+    padding-top: 60px;
+    color: #666;
+}
+
+.talk-about-us strong{
+    margin-top: 25px;
+    color: #4A6BB5;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.talk-about-us .item > img{
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.talk-about-us .item > p{
+    max-width: 600px;
+    letter-spacing: 1px;
+    margin: 0 auto;
+    line-height: 2;
+    margin-bottom: 20px;
+}
+
+.talk-about-us .carousel-indicators > li {
+    background-color: #dcdcdc;
+    border: 0 none;
+    height: 10px;
+    margin: 1px;
+    width: 10px;
+    border-radius: 0;
+    margin: 0 5px;
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.talk-about-us .carousel-indicators li.active {
+    background-color: #4A6BB5;
+}
+
+.talk-about-us .carousel-indicators {
+    bottom: -70px;
+}
