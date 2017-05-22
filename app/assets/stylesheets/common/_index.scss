@@ -41,7 +41,7 @@
     color: #fff;
 }
 
-
+/*===== experts part ====*/
 
 h2.section-title{
     color: #4C4C4C;
@@ -73,6 +73,7 @@ p.index-contect{
 
 .our-experts{
     background-color: #F2F2F2;
+    padding-top: 40px;
 
     p{
       letter-spacing: 0.5px;
@@ -86,6 +87,7 @@ p.index-contect{
     img{
       width: 550px;
       align: center;
+      margin-bottom: 40px;
     }
 }
 .our-experts .expert-box{
@@ -102,4 +104,34 @@ p.index-contect{
         width: 50px;
         margin-top: 25px;
     }
+}
+
+/*===== what we do ====*/
+.what-we-do{
+    text-align: center;
+    padding-top: 40px;
+
+    img{
+      margin-top: 35px;
+      margin-bottom: -35px;
+      width: 100px;
+    }
+}
+
+.what-we-do .do-box{
+    border: 1px solid transparent;
+}
+
+.do-box h3{
+    margin-top: 60px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.do-box p {
+    color: #666;
+    letter-spacing: 1px;
+    line-height: 22px;
+    margin: 40px 25px 40px 25px;
 }
