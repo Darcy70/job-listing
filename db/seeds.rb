@@ -20,12 +20,12 @@ create_categorys = Category.create([{ name: 'Technology', icon: 'fa fa-laptop' ,
 puts "3 categories created."
 
 create_jobs = for i in 1..10 do
-  Job.create([title: "Job No.#{i}", description: " This is the No.#{i} public job been created", contact_email: "JobCreatedBySeedNumber#{i}@example.com",  wage_lower_bound: rand(10..49)*100, wage_upper_bound: rand(50..99)*100, is_hidden: false, company: "No.#{i} company!" ])
+  Job.create!([title: "Job No.#{i}", description: " This is the No.#{i} public job been created", contact_email: "JobCreatedBySeedNumber#{i}@example.com",  wage_lower_bound: rand(10..49)*100, wage_upper_bound: rand(50..99)*100, is_hidden: false, company: "No.#{i} company!" ])
 end
 puts "10 Public jobs have been created. "
 
 
 create_jobs = for i in 1..10 do
-  Job.create([title: "Job No.#{i}", description: " This is the No.#{i} hidden job been created ", contact_email: "JobCreatedBySeedNumber#{i}@example.com", wage_lower_bound: rand(10..49)*100, wage_upper_bound: rand(50..99)*100, is_hidden: true, company: "No.#{i} company!"])
+  Job.create!([title: "Job No.#{i}", description: " This is the No.#{i} hidden job been created ", contact_email: "JobCreatedBySeedNumber#{i}@example.com", wage_lower_bound: rand(10..49)*100, wage_upper_bound: rand(50..99)*100, is_hidden: true, company: "No.#{i} company!"])
 end
 puts "10 Hidden jos have been created. "
