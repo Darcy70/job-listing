@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170517122757) do
+ActiveRecord::Schema.define(version: 20170523090633) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "icon"
+    t.integer  "sort"
+    t.boolean  "is_hidden",  default: false
+    t.boolean  "is_lock",    default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "collections", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "job_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "jobs", force: :cascade do |t|
     t.string   "title"
@@ -21,7 +38,19 @@ ActiveRecord::Schema.define(version: 20170517122757) do
     t.boolean  "is_hidden",        default: false
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+    t.integer  "user_id"
+    t.string   "company"
+    t.integer  "category_id"
+    t.integer  "location_id"
     t.index ["title"], name: "index_jobs_on_title"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "sort"
+    t.boolean  "is_hidden",  default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "resumes", force: :cascade do |t|
@@ -47,6 +76,8 @@ ActiveRecord::Schema.define(version: 20170517122757) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "is_admin",               default: false
+    t.string   "name"
+    t.boolean  "is_website_admin",       default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

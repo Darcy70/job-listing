@@ -1,3 +1,19 @@
 // Place all the styles related to the Jobs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// The common Job part display
+
+.job-content{
+  min-height: 725px;
+  margin-top: 100px;
+
+  a{
+    text-decoration: none;
+  }
+}
+
+.job-bottom{
+  margin-top: 50px;
+  margin-bottom: 30px;
+}

@@ -1,3 +1,8 @@
+<div class="col-md-10 col-md-offset-1 job-content">
+
+
+
+
 <div class="dropdown clearfix pull-right">
   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
     Sort by <span class="caret"></span>
@@ -29,3 +34,13 @@
       </tr>
   <% end %>
 </table>
+
+</div>
+
+
+<!-- The pagination -->
+<div class="col-md-10 col-md-offset-1 job-bottom">
+  <div class="text-center">
+    <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+  </div>
+</div>

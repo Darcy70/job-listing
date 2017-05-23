@@ -1,3 +1,5 @@
+<div class="col-md-10 col-md-offset-1 job-content">
+
 <div class="pull-right">
   <%= link_to("Add a job", new_admin_job_path, :class => "btn btn-default")%>
 </div>
@@ -39,3 +41,12 @@
   </tr>
   <% end %>
 </table>
+
+</div>
+
+
+<div class="col-md-10 col-md-offset-1 job-bottom">
+  <div class="text-center">
+    <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+  </div>
+</div>
