@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  namespace :account do
+    resources :collections
+  end
+
   namespace :admin do
 
     resources :jobs do
@@ -20,6 +24,12 @@ Rails.application.routes.draw do
 
   resources :jobs do
     resources :resumes
+
+    member do
+      post :add
+      post :remove
+    end
+
   end
 
 

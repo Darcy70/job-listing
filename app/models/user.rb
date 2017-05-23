@@ -29,11 +29,28 @@ class User < ApplicationRecord
   has_many :resumes
   has_many :jobs, through: :resumes
   has_many :collections
+  has_many :collected_jobs, :through => :collections, :source => :jobs
 
 
 
   def is_admin?
     is_admin
+  end
+
+  def is_website_admin?
+    is_website_admin
+  end
+
+  def is_member_of?(job)
+    collected_jobs.include?(job)
+  end
+
+  def add_collection!(job)
+    collected_jobs << job
+  end
+
+  def remove_collection!(job)
+    collected_jobs.delete(job)
   end
 
 end

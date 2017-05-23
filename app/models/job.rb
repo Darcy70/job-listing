@@ -19,9 +19,11 @@
 
 class Job < ApplicationRecord
 
-  has_many :resumes
+  has_many :resumes, dependent: :destroy
   has_many :users, through: :resumes
-  has_many :collections
+  has_many :collections, dependent: :destroy
+  belongs_to :location
+
 
 
   scope :published, -> { where(is_hidden: false)}

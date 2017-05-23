@@ -17,3 +17,73 @@
   margin-top: 50px;
   margin-bottom: 30px;
 }
+
+.job-box{
+  border: 1.5px solid #ddd;
+  box-shadow: 1px 1px 5px #ccc;
+  margin-top: 12.5px;
+  padding: 15px 1px 1px 1px;
+  background-color: #fff;
+  color: #555;
+  font-size: 16px;
+  font-family: inherit;
+
+  div{
+    margin-bottom: 5px;
+  }
+
+  .info{
+      display: inline;
+      float: left;
+      min-width: 65%;
+  }
+
+  .info-top{
+    h3{
+      display: inline;
+      font-size: 20px;
+    }
+    span{
+      margin-left: 10px;
+      display: inline;
+      color: #888;
+    }
+  }
+
+  .info-mid{
+    color: #FF7D0A;
+    letter-spacing: -1px;
+  }
+
+  .info-bot{
+    .category{
+      border: 1px solid #ccc;
+      border-radius: 2.5px;
+      padding: 5px 7.5px 5px 7.5px;
+      font-size: 12px;
+    }
+  }
+
+  .company{
+    float: left;
+    display: inline;
+    max-width: 35%;
+
+    span{
+      width: 20px;
+      margin-left: 5px;
+    }
+  }
+
+  .company-top{
+    color: #4A6BB5;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    margin-left: -5px;
+  }
+
+  .company-bot{
+    margin-left: 3.5px;
+    letter-spacing: 1px;
+  }
+}
