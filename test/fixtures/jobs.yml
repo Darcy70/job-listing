@@ -11,6 +11,10 @@
 #  is_hidden        :boolean          default(FALSE)
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  user_id          :integer
+#  company          :string
+#  category_id      :integer
+#  location_id      :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

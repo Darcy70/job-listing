@@ -11,12 +11,17 @@
 #  is_hidden        :boolean          default(FALSE)
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  user_id          :integer
+#  company          :string
+#  category_id      :integer
+#  location_id      :integer
 #
 
 class Job < ApplicationRecord
 
   has_many :resumes
   has_many :users, through: :resumes
+  has_many :collections
 
 
   scope :published, -> { where(is_hidden: false)}

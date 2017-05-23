@@ -16,6 +16,8 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  is_admin               :boolean          default(FALSE)
+#  name                   :string
+#  is_website_admin       :boolean          default(FALSE)
 #
 
 class User < ApplicationRecord
@@ -26,6 +28,7 @@ class User < ApplicationRecord
 
   has_many :resumes
   has_many :jobs, through: :resumes
+  has_many :collections
 
 
 
