@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users, :controllers => {:registrations => "users/registrations"}
 
   namespace :account do
     resources :collections
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
 
   end
 
-  devise_for :users
+
 
   resources :jobs do
     resources :resumes
