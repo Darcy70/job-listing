@@ -1,1 +1,63 @@
-<h1>heo</h1>
+<% if @collection.length > 0 %>
+<div class="col-md-10 col-md-offset-1 page-title">
+  <h1><span class="fa fa-gift"></span>My Collections</h1>
+</div>
+<div class="col-md-10 col-md-offset-1 job-content">
+  <div class="container">
+    <% @collections.each do |collection| %>
+    <div class="col-md-9 col-xs-12 job-box">
+      <!--=== The job info part ====-->
+      <div class="col-md-6 col-xs-12 info">
+        <div class="info-top">
+          <h3><%= link_to(collection.job.name, job_path(collection.job), target: "_blank") %></h3>
+          <% if collection.job.is_hidden%>
+            <span>(Sorry, The job is not available anymore.)</span>
+          <% else %>
+            <span><%= collection.job.created_at.to_formatted_s(:long_ordinal) %></span>
+          <% end %>
+        </div>
+        <div class="info-mid">
+          <%= collection.job.wage_lower_bound %> ~ <%= collection.job.wage_upper_bound %>
+        </div>
+        <div class="info-bot">
+          <span class="category"><span class="<%= collection.job.category.icon %>"><%= collection.job.category.name %></span></span>
+
+        </div>
+      </div>
+      <!--=== The company info part ===-->
+      <div class="col-md-6 col-xs-12 company">
+        <div class="company-top">
+          <span><%= link_to(collection.job.company, job_path(collection.job))%></span>
+          <% if current_user && current_user.is_member_of?(collection.job) %>
+            <%= link_to remove_job_path(collection.job), method: :post do %>
+              <span class="fa fa-star"></span>
+            <% end %>
+          <% else %>
+            <%= link_to add_job_path(collection.job), method: :post do %>
+              <span class=" fa fa-star-o"></span>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="company-mid">
+          <span class="fa fa-envelope"></span><span><%= collection.job.contact_email%></span>
+        </div>
+        <div class="company-bot">
+          <span class="fa fa-map-marker"></span><span><%= collection.job.location.name %></span>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<!--==== Pagination ====-->
+<div class="col-md-10 col-md-offset-1 job-bottom">
+  <div class="text-center">
+    <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+  </div>
+</div>
+<% else %>
+<div class="col-md-12 job-limit-box text-center">
+  <h2> You don't have any collection yet!</h2>
+  <p><%= link_to("Look up right now!", jobs_path, class: "btn btn-lg btn-success")%></p>
+</div>
+<% end %>
