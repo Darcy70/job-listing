@@ -23,6 +23,7 @@ class Job < ApplicationRecord
   has_many :users, through: :resumes
   has_many :collections, dependent: :destroy
   belongs_to :location
+  belongs_to :category
 
 
 
