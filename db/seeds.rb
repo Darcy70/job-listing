@@ -16,16 +16,16 @@ create_locations = Location.create!([{ name: 'Beijing', sort: 1 }, { name: 'Shan
 puts "5 locations have been created."
 
 
-create_categorys = Category.create!([{ name: 'Technology', icon: 'fa fa-laptop' , sort: 1, is_lock: true }, { name: 'Product', icon: 'fa fa-tasks' , sort: 2, is_lock: true }, { name: 'Design', icon: 'fa fa-photo' , sort: 3, is_lock: true },{ name: 'Marketing', icon: 'fa fa-pie-chart' , sort: 4, is_lock: true }, { name: 'Sales', icon: 'fa fa-cny' , sort: 5, is_lock: true }, { name: 'office', icon: 'fa fa-paste' , sort: 6, is_lock: true }])
+create_categorys = Category.create!([{ name: 'Technology', icon: 'fa fa-laptop' , sort: 1, is_lock: true }, { name: 'Product', icon: 'fa fa-tasks' , sort: 2, is_lock: true }, { name: 'Design', icon: 'fa fa-photo' , sort: 3, is_lock: true },{ name: 'Marketing', icon: 'fa fa-pie-chart' , sort: 4, is_lock: true }, { name: 'Sales', icon: 'fa fa-cny' , sort: 5, is_lock: true }, { name: 'Office', icon: 'fa fa-paste' , sort: 6, is_lock: true }])
 puts "3 categories have been created."
 
 create_jobs = for i in 1..10 do
-  Job.create!([title: "Job No.#{i}", description: " This is the No.#{i} public job been created", contact_email: "JobCreated#{i}@example.com",  wage_lower_bound: rand(10..49)*100, wage_upper_bound: rand(50..99)*100, is_hidden: false, company: "No.#{i} company!", category_id: rand(1..6), location_id: rand(1..5) ])
+  Job.create!([title: "Job No.#{i}", description: " This is the No.#{i} public job been created", contact_email: "Job#{i}@example.com",  wage_lower_bound: rand(10..49)*100, wage_upper_bound: rand(50..99)*100, is_hidden: false, company: "No.#{i} company!", category_id: rand(1..6), location_id: rand(1..5) ])
 end
 puts "10 Public jobs have been created. "
 
 
 create_jobs = for i in 1..10 do
-  Job.create!([title: "Job No.#{i}", description: " This is the No.#{i} hidden job been created ", contact_email: "JobCreated#{i}@example.com", wage_lower_bound: rand(10..49)*100, wage_upper_bound: rand(50..99)*100, is_hidden: true, company: "No.#{i} company!",category_id: rand(1..6), location_id: rand(1..5)])
+  Job.create!([title: "Job No.#{i}", description: " This is the No.#{i} hidden job been created ", contact_email: "Job#{i}@example.com", wage_lower_bound: rand(10..49)*100, wage_upper_bound: rand(50..99)*100, is_hidden: true, company: "No.#{i} company!",category_id: rand(1..6), location_id: rand(1..5)])
 end
 puts "10 Hidden jos have been created. "
