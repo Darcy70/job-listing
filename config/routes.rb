@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   namespace :account do
     resources :collections
+    resources :resumes
   end
 
   namespace :admin do

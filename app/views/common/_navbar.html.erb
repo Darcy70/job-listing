@@ -1,51 +1,52 @@
 <header id="home" data-spy="scroll" data-target="#top-nav" >
-  <nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">Job Listing
-        </a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <% if !current_user %>
-            <!-- <li><%= link_to("Register", new_user_registration_path)%></li> -->
-          <li>
-            <a href="#" data-toggle="modal" data-target="#signup-modal">Sign up</a>
-          </li>
-          <!-- <li><%= link_to("login", new_user_session_path)%></li> -->
-          <li>
-            <a href="#" data-toggle="modal" data-target="#login-modal">Log in</a>
-          </li>
-        <% else %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Hi!,
-              <%= current_user.name%>
-              <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <% if current_user.is_admin %>
-              <li><%= link_to("Admin Panel", admin_jobs_path)%></li>
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="navbar navbar-default navbar-fixed-top default-menu menu-4" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <!--==== Logo =====-->
+            <%= link_to root_path, class: "navbar-brand default-logo scroll" do %>
+            <%= image_tag("arrow.png", class: "logo_img") %> Rocking
+            <% end %>
+          </div>
+          <div class="collapse navbar-collapse top-nav" id="menu-4">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="divider" role="separator"></li>
+              <% if !current_user %>
+                <li><%= button_to("Sign up", new_user_registration_path, method: :get , class: "btn btn-default navbar-btn") %></li>
+                <li><%= button_to("Log in", new_user_session_path, method: :get , class: "btn btn-default navbar-btn") %></li>
+              <% else %>
+                <li class="dropdown"></li>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Hi,<%= current_user.name %>
+                  <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <% if current_user.is_admin?%>
+                      <li><%= link_to("Empolyer Part", admin_jobs_path)%></li>
+                      <li class="divider"></li>
+                    <% end %>
+                    <li><%= link_to("My Collections", account_collections_path)%></li>
+                    <li><%= link_to("My Resumes", account_resumes_path) %></li>
+                    <li class="divider" role="separator"></li>
+                    <li><%= link_to("Log out", destroy_user_session_path, method: :delete ) %></li>
+                  </ul>
               <% end %>
-              <li><%= link_to("Sign out", destroy_user_session_path, method: :delete)%></li>
             </ul>
-          </li>
-          <% end %>
-        </li>
-      </ul>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- /.navbar-collapse -->
   </div>
-  <!-- /.container-fluid -->
-</nav>
+
+
+
+
+
+
 
 <!-- Popup window -->
 <!-- Sign in window -->
-<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+<!-- <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
   <div class="modal-dialog" role="document">
     <div class="loginmodal-container">
       <h2 class="text-center" style="margin-bottom: 5rem; text: bold;">Log in</h2>
@@ -77,9 +78,9 @@
 
   </div>
 
-</div>
+</div> -->
 <!-- Sign Up window -->
-<div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+<!-- <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
   <div class="modal-dialog">
     <div class="loginmodal-container">
       <h2 class="text-center" style="margin-bottom: 5rem; text: bold;">Sign up</h2>
@@ -118,6 +119,6 @@
 
   </div>
 
-</div>
+</div> -->
 
 </header>
