@@ -1,4 +1,4 @@
-<% if @collection.length > 0 %>
+<% if @collections.length > 0 %>
 <div class="col-md-10 col-md-offset-1 page-title">
   <h1><span class="fa fa-gift"></span>My Collections</h1>
 </div>
@@ -9,7 +9,7 @@
       <!--=== The job info part ====-->
       <div class="col-md-6 col-xs-12 info">
         <div class="info-top">
-          <h3><%= link_to(collection.job.name, job_path(collection.job), target: "_blank") %></h3>
+          <h3><%= link_to(collection.job.title, job_path(collection.job), target: "_blank") %></h3>
           <% if collection.job.is_hidden%>
             <span>(Sorry, The job is not available anymore.)</span>
           <% else %>

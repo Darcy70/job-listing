@@ -5,7 +5,14 @@ class Admin::JobsController < ApplicationController
   layout 'admin'
 
   def index
-    @jobs = Job.all.newest_first.paginate(:page => params[:page], :per_page => 7)
+    @jobs = case params[:order]
+    when "Lowerbound"
+      Job.all.order("wage_lower_bound DESC").paginate(:page => params[:page], :per_page => 7)
+    when "Upperbound"
+      Job.all.order("wage_upper_bound DESC").paginate(:page => params[:page], :per_page => 7)
+    else
+      Job.all.newest_first.paginate(:page => params[:page], :per_page => 7)
+    end
   end
 
   def show

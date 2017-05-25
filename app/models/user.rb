@@ -23,13 +23,18 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+
+  validates :name, presence: { message: "We need a name please." }
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :resumes
   has_many :jobs, through: :resumes
   has_many :collections
-  has_many :collected_jobs, :through => :collections, :source => :jobs
+  has_many :collected_jobs, :through => :collections, :source => :job
+
+
 
 
 

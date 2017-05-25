@@ -10,6 +10,6 @@
 #
 
 class Collection < ApplicationRecord
-  belongs_to :users
-  belongs_to :jobs
+  belongs_to :user
+  belongs_to :job
 end

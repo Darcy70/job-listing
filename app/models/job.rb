@@ -20,10 +20,12 @@
 class Job < ApplicationRecord
 
   has_many :resumes, dependent: :destroy
-  has_many :users, through: :resumes
   has_many :collections, dependent: :destroy
+  has_many :members, through: :collections, source: :user
   belongs_to :location
   belongs_to :category
+  belongs_to :user
+
 
 
 

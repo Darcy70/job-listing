@@ -3,14 +3,7 @@ class JobsController < ApplicationController
   before_action :authenticate_user!, except:[:index, :show]
 
   def index
-    @jobs = case params[:order]
-    when "Lowerbound"
-      Job.published.order("wage_lower_bound DESC").paginate(:page => params[:page], :per_page => 7)
-    when "Upperbound"
-      Job.published.order("wage_upper_bound DESC").paginate(:page => params[:page], :per_page => 7)
-    else
-      Job.published.newest_first.paginate(:page => params[:page], :per_page => 7)
-    end
+    @jobs = Job.published.newest_first.paginate(:page => params[:page], :per_page => 7)
   end
 
   def show
@@ -55,6 +48,7 @@ class JobsController < ApplicationController
 
   def add
     @job = Job.find(params[:id])
+    @job.user_id = current_user.id
     if !current_user.is_member_of?(@job)
       current_user.add_collection!(@job)
     end
