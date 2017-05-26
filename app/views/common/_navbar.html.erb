@@ -3,13 +3,13 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="navbar navbar-default navbar-fixed-top default-menu menu-4" role="navigation">
         <div class="container">
-          <div class="navbar-header">
+          <div class="navbar-header align-self-center">
             <!--==== Logo =====-->
             <%= link_to root_path, class: "navbar-brand default-logo scroll" do %>
             <%= image_tag("arrow.png", class: "logo_img") %> Rocking
             <% end %>
           </div>
-          <div class="collapse navbar-collapse top-nav" id="menu-4">
+          <div class="collapse navbar-collapse top-nav align-self-center" id="menu-4">
             <ul class="nav navbar-nav navbar-right">
               <li class="divider" role="separator"></li>
               <% if !current_user %>
