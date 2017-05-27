@@ -1,18 +1,21 @@
-// Place all the styles related to the account::collections controller here.
+// Place all the styles related to the Account::resumes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.job-limit-box{
+  min-height: 350px;
+  margin-top: 200px;
+
+  .btn-lg{
+    border-radius: 1.5rem;
+  }
+
+}
 
 .page-title{
    margin-top: 75px;
    margin-bottom: -100px;
    color: #333;
    letter-spacing: 1px;
-   h1{
-     margin-left: 2rem;
-   }
-}
-
-.job-limit-box{
-  min-height: 350px;
-  margin-top: 200px;
 }

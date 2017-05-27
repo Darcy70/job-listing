@@ -1,35 +1,29 @@
 class ResumesController < ApplicationController
+  before_action :authenticate_user! , only: [:new, :create]
 
-before_action :authenticate_user!
-
-def new
-  @job = Job.find(params[:job_id])
-  @resume = Resume.new
-end
-
-def create
-  @job = Job.find(params[:job_id])
-  @resume = Resume.new(resume_params)
-  @resume.job = @job
-  @resume.user = current_user
-
-  if @resume.save
-    flash[:notice] = "Resume uploaded successfully"
-    redirect_to job_path(@job)
-  else
-    flash[:warn] = "Resume uploaded failed"
-    render :new
+  def new
+    @job = Job.find(params[:job_id])
+    @resume = Resume.new
   end
 
-end
+  def create
+    @job = Job.find(params[:job_id])
+    @resume = Resume.new(resume_params)
+    @resume.job = @job
+    @resume.user = current_user
 
+    if @resume.save
+      redirect_to job_path(@job), notice: "Resume uploaded successfully"
+    else
+      flash[:warn] = "Resume uploaded failed"
+      render :new
+    end
+  end
 
 private
 
-def resume_params
-  params.require(:resume).permit.(:content, :attachment)
-
-end
-
+  def resume_params
+    params.require(:resume).permit(:content,:attachment)
+  end
 
 end

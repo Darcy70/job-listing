@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :account do
+    get 'resumes/index'
+  end
+
   devise_for :users, :controllers => {:registrations => "users/registrations"}
 
   namespace :account do
