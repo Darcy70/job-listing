@@ -51,6 +51,40 @@
       <h2>Ohps, There is no job yet.</h2>
     </div>
     <% end %>
+      <!--==== Suggested Jobs  =====-->
+    <div class="col-md-3 side-box">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1 suggest-title">
+              <span class="fa fa-tags"></span><span> Recommands </span>
+            </div>
+            <div class="row" style="margin-left:-4rem; margin-right:-4rem;">
+              <% @suggests.each do |job| %>
+              <div class="col-xs-10 col-xs-offset-1 suggest-content">
+                <div>
+                  <h3>
+                    <%= link_to job_path(job), target: "_blank" do %>
+                    <%= job.title %> [<%= job.location.name %>]
+                    <% end %>
+                  </h3>
+                </div>
+                <div>
+                  <p> <%= job.wage_lower_bound %> ~ <%= job.wage_upper_bound  %></p>
+                </div>
+                <div>
+                  <span> <%= job.company %></span>
+                </div>
+              </div>
+              <% end %>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
 
   </div>
 
@@ -62,35 +96,3 @@
     <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
   </div>
 </div>
-
-<!-- <div class="dropdown clearfix pull-right">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
-    Sort by <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
-    <li><%= link_to("Lowerbound", jobs_path(order: "Lowerbound"))%></li>
-    <li><%= link_to("Upperbound", jobs_path(order: "Upperbound"))%></li>
-    <li><%= link_to("Time", jobs_path(order: "Time"))%></li>
-  </ul>
-
-</div>
-
-<table class="table table-boldered">
-  <thead>
-    <tr>
-      <td>Job title</td>
-      <td>Lower bound of salary</td>
-      <td>Upper bound of salary</td>
-      <td>Publish time</td>
-    </tr>
-  </thead>
-
-  <% @jobs.each do |job| %>
-      <tr>
-        <td><%= link_to(job.title, job_path(job))%></td>
-        <td><%= job.wage_lower_bound %></td>
-        <td><%= job.wage_upper_bound %></td>
-        <td><%= job.created_at.to_formatted_s(:long_ordinal)%></td>
-      </tr>
-  <% end %>
-</table> -->

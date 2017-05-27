@@ -4,6 +4,8 @@ class JobsController < ApplicationController
 
   def index
     @jobs = Job.published.newest_first.paginate(:page => params[:page], :per_page => 7)
+    @suggests = Job.published.random5
+
   end
 
   def show
