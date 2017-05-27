@@ -279,10 +279,16 @@ p.index-contect{
     img{
       width: 35px;
       margin: 5px;
+      filter: gray; /* IE6-9 */
+      -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+      filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
     }
 
     img:hover{
       opacity: 0.75;
+      filter: gray; /* IE6-9 */
+      -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+      filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
     }
 
     p{
@@ -312,9 +318,15 @@ p.index-contect{
     width: 25px;
     margin-left: 7.5px;
     margin-right: -0.1px;
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+    filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
   }
   img:hover{
     opacity: 1;
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+    filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
   }
 
 }
