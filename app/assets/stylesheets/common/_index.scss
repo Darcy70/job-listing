@@ -382,3 +382,40 @@ p.index-contect{
     letter-spacing: 0.5px;
   }
 }
+
+
+// alert
+
+.alert {
+  margin-bottom: 0;
+}
+
+// Go top button
+.goTop {
+    height: 35px;
+    width: 35px;
+    background-color: #fff;
+    border-radius: 5px;
+    position: fixed;
+    top: 90%;
+    right: 3%;
+    display: none;
+
+    box-shadow: 1px 1px 3px #141214;
+}
+.goTop span {
+    color: #000;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+
+    font-size: 20px;
+}
+
+.goTop:hover {
+    background-color: #141214;
+
+    span{
+      color: #fff;
+    }
+}

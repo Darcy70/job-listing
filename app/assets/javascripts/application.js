@@ -15,3 +15,18 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+$(window).scroll(function() {
+  if ($(this).scrollTop() > 2500 ){
+    $(".goTop").fadeIn(100);
+  } else {
+    $(".goTop").fadeOut(200);
+  }
+
+  $(".goTop").click(
+  function(){
+    $('html,body').animate({
+      scrollTop: 0
+    },700);
+  });
+})
