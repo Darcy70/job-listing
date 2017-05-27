@@ -1,3 +1,79 @@
 // Place all the styles related to the resumes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.job-resume-box{
+  margin-top: 10rem;
+  height: 75vh;
+  // background: linear-gradient(rgba( 225, 225, 225, 0.5), rgba(225, 225, 225, 0.3)), image_url("resume_background.jpg") no-repeat scroll top center/ cover;
+
+  h3{
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+}
+
+.job-info-box{
+  color: #333;
+  font-family: inherit;
+
+  h3{
+    text-align: left;
+    color: #3D537F;
+  }
+
+  p{
+    font-size: 16px;
+    color: #666;
+  }
+  .company{
+    font-size: 20px;
+    color: #999;
+  }
+
+  .wage{
+    color: #FF7D0A;
+    letter-spacing: -1px;
+    font-size: 18px;
+  }
+
+  .created{
+    color: #999;
+    font-size: 14px;
+  }
+
+  .website{
+    letter-spacing: 1px;
+  }
+}
+
+.resume-content{
+  height: 150px !important;
+}
+
+.resume-attachment{
+  font-size: 16px;
+}
+
+.form-actions-resume{
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 55px;
+
+  .button{
+    color: #fff;
+    background-color: #333333;
+    border-color: #333333;
+    border-radius: 5px;
+    height: 35px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    width: 35%;
+  }
+  .button:hover{
+      background-color: #121111;
+      border-color: #121111;
+      color: #fff;
+  }
+}
