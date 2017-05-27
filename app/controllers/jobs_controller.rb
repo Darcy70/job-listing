@@ -9,11 +9,16 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
 
+    @category = @job.category
+    @sames = Job.where(:is_hidden => false, :category => @job.category).where.not(id: @job.id).random5
+    @resumes = Resume.where(job: @job, user: current_user )
     if @job.is_hidden
       flash[:notice] = "This job has already been archieved"
       redirect_to jobs_path
     end
   end
+
+
 
   def new
     @job = Job.new

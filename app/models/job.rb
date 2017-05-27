@@ -30,6 +30,8 @@ class Job < ApplicationRecord
 
 
   scope :published, -> { where(is_hidden: false)}
+  scope :random5, -> { limit(5).order("RANDOM()") }
+
 
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
 

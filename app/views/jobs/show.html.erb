@@ -1,13 +1,131 @@
+<div class="job-content">
+  <!--=== Start - the uppper part of Jobs ===-->
+  <div class="row">
+    <!--=== Start - the left part ===-->
+    <div class="col-md-7 col-md-offset-1 job-info-box">
+      <h1><%= @job.title %>
+        <span class="company">
+          /
+          <%= @job.company %></span>
+      </h1>
+      <p>
+        <span class="wage">
+          <%= @job.wage_lower_bound %>
+          ~
+          <%= @job.wage_upper_bound %>
+        </span>
+        /
+        <span>
+          <span class="fa fa-map-marker"></span>
+          <%= @job.location.name %>
+        </span>
+        /
+        <span>
+          <span class="<%= @job.category.icon %>"></span>
+          <%= @job.category.name %>
+        </span>
+      </p>
+      <p class="created">
+        <%= @job.created_at.to_formatted_s(:long_ordinal ) %>
+        <span class="website">
+          Published at Rocking Job
+        </span>
+      </p>
+    </div>
+    <!--=== End - the left part ====-->
 
-<h1><%= @job.title %></h1>
+    <!--=== Start - the right part ====-->
+    <div class="col-md-3 job-action-box">
+      <div>
+        <!--=== The user collections status ===-->
+        <% if current_user && current_user.is_member_of?(@job)%>
+        <%= link_to remove_job_path(@job), method: :post, class: "btn btn-lg btn-primary" do %>
+        <span class="fa fa-star"></span>
+        Collected
+        <% end %>
+      <% else %>
+        <%= link_to add_job_path(@job), method: :post, class: "btn btn-lg btn-default" do %>
+        <span class="fa fa-star-o"></span>
+        Collect
+        <% end %>
+        <% end %>
+      </div>
 
-<p>
-  <%= simple_format(@job.description)%>
-  <%= simple_format(@job.contact_email)%>
-  <%= @job.wage_lower_bound %> <br>
-  <%= @job.wage_upper_bound %>
-</p>
+      <!--==== The user resume status ===-->
+      <div>
+      <% if @resumes.length > 0 %>
+        <%= link_to("Uploaded Resumes", '#', class: "btn btn-lg btn-danger")%>
+      <% else %>
+        <%= link_to("Upload Resume", new_job_resume_path(@job), class: "btn btn-lg btn-success")%>
+      <% end %>
+      </div>
 
-<div class="text-center">
-  <%= link_to("Upload your resume", new_job_resume_path(@job), :style => "font-size: 30px; text-decoration:underline;")%>
+    </div>
+    <!--=== End of the right part ===-->
+  </div>
+
+  <!--=== End of the upper part ===-->
+
+  <hr style="width:85%;">
+
+  <!--=== Start of the lower part ===-->
+
+  <div class="row">
+    <!--=== Start - left part of the lower part ===-->
+    <div class="col-md-7 col-md-offset-1 job-content-box">
+      <div class="content-info">
+        <h4>
+          Job Description
+        </h4>
+        <p><%= simple_format(@job.description ) %></p>
+      </div>
+      <hr >
+      <div class="mail-info">
+        <h4>Contact Information
+        </h4>
+        <p class="email">
+          <span class="fa fa-envelope"></span>
+          <%= @job.contact_email %></p>
+      </div>
+    </div>
+    <!--=== End - left part of the lower part ===-->
+
+    <!--=== Start - right part of the lower part ===-->
+  <% if @sames.length > 0 %>
+    <div class="col-md-3">
+      <div class="same-box">
+        <div class="title">
+          <span>
+            Recommandations
+          </span>
+        </div>
+        <% @sames.each do |job| %>
+        <div class="same-content">
+          <div>
+            <h3>
+              <%= link_to job_path(job), target: "_blank" do %>
+              <%= job.title %>
+              [<%= job.location.name %>]
+              <% end %>
+            </h3>
+          </div>
+          <div>
+            <p>
+              <%= job.wage_lower_bound %>
+              ~
+              <%= job.wage_upper_bound%></p>
+          </div>
+          <div>
+            <span>
+              <%= job.company %></span>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+    <!--=== End - left part of the lower part ===-->
+  </div>
+
+  <!--=== End of the lower part ===-->
 </div>
