@@ -1,3 +1,146 @@
 // Place all the styles related to the admin::jobs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.job-form{
+    margin-top: 50px;
+    margin-bottom: 100px;
+    min-height: 550px;
+    h2{
+      color: #555;
+      text-align: center;
+    }
+  }
+
+  .resume-form{
+    min-height: 400px;
+  }
+
+  .job-setup{
+    background: #fafafa;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: 1px 3px 5px #333;
+    border: 5px solid #666;
+    border-radius: 25px;
+
+    opacity:0.95;
+    filter:alpha(opacity=95);
+    hr {
+      height:1px;
+      background-color:#ccc;
+    }
+  }
+
+  .job-form-content{
+    h2{
+      text-align: center;
+      color: #3D537F;
+      letter-spacing: 1px;
+    }
+
+    .job-content-info{
+      height: 225px;
+    }
+
+    .category{
+      width: 75%;
+    }
+
+    .location{
+      width: 75%;
+    }
+
+    .wage{
+      width: 50px;
+      border-radius: 5px;
+    }
+
+    .wage-form{
+      font-weight: 600;
+      font-size: 16px;
+      color: #666;
+    }
+
+    .hidden-box{
+      font-size: 16px;
+    }
+
+
+    .form-actions{
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 25px;
+
+      .button{
+        color: #fff;
+        background-color: #4A6BB5;
+        border-color: #4A6BB5;
+        font-size: 16px;
+        letter-spacing: 1px;
+        width: 100%;
+      }
+      .button:hover{
+          background-color: #4A99B5;
+          border-color: #4A99B5;
+          color: #fff;
+      }
+    }
+
+
+  }
+
+
+  .action-btn{
+    width: 100px;
+    height: 35px;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+
+
+  .admin-select-job-box{
+    margin-top: 15px;
+
+    button{
+      width: 100px;
+    }
+
+    .btn-select{
+      background-color: #B6C9F2;
+      color: #fff;
+    }
+  }
+
+
+  .admin-content{
+  min-height: 425px;
+  margin-top: 85px;
+  // margin-bottom: 100px;
+}
+
+.nav-sidebar{
+  margin-top: 50px;
+
+  span{
+    margin-left: 2.5px;
+  }
+  li{
+    max-width: 225px;
+    padding: 12.5px 15px 12.5px 15px;
+    background-color: #1A6561;
+    border: 1px solid #444;
+    letter-spacing: 0.5px;
+  }
+  a{
+    color: #fff;
+    text-decoration: none;
+  }
+  a:hover{
+    color: #35CCC6;
+  }
+}

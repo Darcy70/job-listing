@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Job Listing </title>
+        <title>Rocking Job </title>
         <%= csrf_meta_tags %>
 
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <link rel="shortcut icon" href="favicon.ico">
     </head>
 
     <body>
 
-        <div class="container-fluid">
+        <div class="container-fluid admin-content">
             <%= render "common/navbar" %>
             <%= render "common/flashes" %>
             <div class="row">
-              <div class="col-md-2">
-                <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
-                  <li class="active"><%= link_to("Jobs", admin_jobs_path ) %></li>
+              <div class="col-md-2 nav-sidebar">
+                <ul class="list-unstyled" >
+                  <li><%= link_to admin_jobs_path do %> <span class="fa fa-favcard-o"></span> <span> Manage Jobs</span><% end %></li>
+                  <li><%= link_to admin_locations_path do %> <span class="fa fa-location-arrow"></span> <span> Manage Locations </span><% end %></li>
+                  <li><%= link_to admin_categories_path do %> <span class="fa fa-location-arrow"></span> <span> Manage Categories </span><% end %></li>
+                  <li><%= link_to admin_jobs_path do %> <span class="fa fa-file-text-o"></span> <span> Manage Pages</span><% end %></li>
+                  <li><%= link_to admin_jobs_path do %> <span class="fa fa-file-circle-o"></span> <span> Account Setting</span><% end %></li>
                </ul>
               </div>
 
