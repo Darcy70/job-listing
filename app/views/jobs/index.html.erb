@@ -1,4 +1,70 @@
 <div class="col-md-10 col-md-offset-1 job-content">
+  <div class="row">
+    <div class="col-md-12 btn-group select-job-box">
+      <!--=== By locastion ====-->
+      <div class="dropdown btn-group clearfix">
+        <% if params[:location].present? %>
+        <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expended="true">
+          <%= params[:location] %> <span class="caret"></span>
+        </button>
+        <% else %>
+        <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
+          locations <span class="caret"></span>
+        </button>
+        <% end %>
+        <ul class="dropdown-menu" selection aria-labelledby="dropdownMenuDivider">
+          <% @locations.each do |location| %>
+          <li><%= link_to(location.name, jobs_path(:location => location.name ))%></li>
+          <% end %>
+          <li><%= link_to("All Locations", jobs_path(location: "All Locations"))%></li>
+        </ul>
+      </div>
+      <!--=== By category ====-->
+      <div class="dropdown btn-group clearfix">
+        <% if params[:category].present? %>
+        <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expended="true">
+          <%= params[:category] %> <span class="caret"></span>
+        </button>
+        <% else %>
+        <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
+          Categories <span class="caret"></span>
+        </button>
+        <% end %>
+        <ul class="dropdown-menu" selection aria-labelledby="dropdownMenuDivider">
+          <% @categorys.each do |category| %>
+          <li><%= link_to(category.name, jobs_path(:category => category.name ))%></li>
+          <% end %>
+          <li><%= link_to("All Categoris", jobs_path(category: "All Categoris"))%></li>
+        </ul>
+      </div>
+      <!--=== By Salary ====-->
+      <div class="dropdown btn-group clearfix">
+        <% if params[:wage].present? %>
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <%= params[:wage] %> <span class="caret"></span>
+        </button>
+        <% else %>
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Wages <span class="caret"></span>
+        </button>
+        <% end %>
+        <ul class="dropdown-menu" selection aria-labelledby="dropdownMenuDivider">
+          <li>
+            <%= link_to("0~3k", jobs_path(:wage => "0~3k")) %>
+          </li>
+          <li>
+            <%= link_to("3~5k", jobs_path(:wage => "3~5k")) %>
+          </li>
+          <li>
+            <%= link_to("5~7k", jobs_path(:wage => "5~7k")) %>
+          </li>
+          <li>
+            <%= link_to("7~10k", jobs_path(:wage => "7~10k")) %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
   <!--=== List of Jobs ===-->
   <div class="row">
@@ -85,8 +151,10 @@
       </div>
     </div>
 
-
   </div>
+
+
+
 
 </div>
 
