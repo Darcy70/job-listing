@@ -40,12 +40,14 @@ class Job < ApplicationRecord
   validates :description, presence: {:message => "Description is needed"}
   validates :contact_email, presence: {:message => "Email is needed"},
   :format => {:with => EMAIL_REGEX, message: "The email format has to be right"}
-
+  validates :company, presence: { message: "Company name please" }
+  validates :category, presence: { message: "Job category is necessary" }
+  validates :location, presence: { message: "Job loaction please" }
   validates_numericality_of :wage_lower_bound, :wage_upper_bound
-
   validates :wage_lower_bound, presence: { message: "You need to provide a lower bound"}, numericality:{ greater_than: 0, message: "It has to be above the zero"}
   validates :wage_lower_bound, numericality: { less_than: :wage_upper_bound, message: "It has to be below the upper bound"}
   validates :wage_upper_bound, presence: { message: "You need to provide a upper bound"}, numericality:{ greater_than: :wage_lower_bound, message: "It has to be above the lower bound"}
+
 
   def publish!
     self.is_hidden = false
