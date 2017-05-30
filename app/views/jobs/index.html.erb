@@ -1,7 +1,7 @@
 <div class="col-md-10 col-md-offset-1 job-content">
   <div class="row">
     <div class="col-md-12 btn-group select-job-box">
-      <!--=== By locastion ====-->
+      <!--=== By location ====-->
       <div class="dropdown btn-group clearfix">
         <% if params[:location].present? %>
         <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expended="true">
@@ -34,7 +34,7 @@
           <% @categorys.each do |category| %>
           <li><%= link_to(category.name, jobs_path(:category => category.name ))%></li>
           <% end %>
-          <li><%= link_to("All Categoris", jobs_path(category: "All Categoris"))%></li>
+          <li><%= link_to("All Categories", jobs_path(category: "All Categories"))%></li>
         </ul>
       </div>
       <!--=== By Salary ====-->

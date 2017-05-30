@@ -27,11 +27,6 @@ class Job < ApplicationRecord
   belongs_to :user
 
 
-
-
-  scope :published, -> { where(is_hidden: false)}
-  scope :random5, -> { order("RANDOM()").limit(5) }
-
   scope :wage1, -> { where('wage_lower_bound <= 3000 or wage_upper_bound <= 3000') }
   scope :wage2, -> { where('wage_lower_bound between 3000 and 5000 or wage_upper_bound between 3000 and 5000') }
   scope :wage3, -> { where('wage_lower_bound between 5000 and 7000 or wage_upper_bound between 5000 and 7000') }

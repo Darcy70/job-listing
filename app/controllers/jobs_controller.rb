@@ -23,7 +23,7 @@ class JobsController < ApplicationController
       @category = params[:category]
       @category_id = Category.find_by(name: @category)
 
-      if @category == "All Categoris"
+      if @category == "All Categories"
         @jobs = Job.published.newest_first.paginate(page: params[:page], per_page: 7)
       else
         @jobs = Job.published.where(category: @category_id).newest_first.paginate(page: params[:page], per_page: 7)
@@ -62,36 +62,36 @@ class JobsController < ApplicationController
 
 
 
-  def new
-    @job = Job.new
-  end
-
-  def create
-    @job = Job.new(job_params)
-    if @job.save
-      redirect_to(jobs_path)
-    else
-      render('new')
-    end
-  end
-
-  def edit
-    @job = Job.find(params[:id])
-  end
-
-  def update
-    @job = Job.find(params[:id])
-    if @job.update_attributes(job_params)
-      redirect_to(jobs_path)
-    else
-      render('edit')
-    end
-  end
-
-  def destroy
-    @job = Job.find(params[:id])
-    @job.destroy
-  end
+  # def new
+  #   @job = Job.new
+  # end
+  #
+  # def create
+  #   @job = Job.new(job_params)
+  #   if @job.save
+  #     redirect_to(jobs_path)
+  #   else
+  #     render('new')
+  #   end
+  # end
+  #
+  # def edit
+  #   @job = Job.find(params[:id])
+  # end
+  #
+  # def update
+  #   @job = Job.find(params[:id])
+  #   if @job.update_attributes(job_params)
+  #     redirect_to(jobs_path)
+  #   else
+  #     render('edit')
+  #   end
+  # end
+  #
+  # def destroy
+  #   @job = Job.find(params[:id])
+  #   @job.destroy
+  # end
 
   def add
     @job = Job.find(params[:id])
@@ -111,11 +111,11 @@ class JobsController < ApplicationController
   end
 
 
-  private
-
-  def job_params
-    params.require(:job).permit(:title, :description, :contact_email, :wage_lower_bound, :wage_upper_bound, :is_hidden)
-  end
+  # private
+  #
+  # def job_params
+  #   params.require(:job).permit(:title, :description, :contact_email, :wage_lower_bound, :wage_upper_bound, :is_hidden)
+  # end
 
 
 end

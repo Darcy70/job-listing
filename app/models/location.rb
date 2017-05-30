@@ -12,4 +12,6 @@
 
 class Location < ApplicationRecord
   has_many :jobs
+
+  validates :name, presence: { message: "Name is needed"}
 end

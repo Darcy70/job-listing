@@ -1,53 +1,133 @@
-<div class="col-md-10 col-md-offset-1 job-content">
+<div class="col-md-12">
+  <div class="row">
+    <div class="col-md-12 btn-group admin-select-job-box">
+      <!--=== By location ====-->
+      <div class="dropdown btn-group clearfix">
+        <% if params[:location].present? %>
+        <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expended="true">
+          <%= params[:location] %> <span class="caret"></span>
+        </button>
+        <% else %>
+        <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
+          locations <span class="caret"></span>
+        </button>
+        <% end %>
+        <ul class="dropdown-menu" selection aria-labelledby="dropdownMenuDivider">
+          <% @locations.each do |location| %>
+          <li><%= link_to(location.name, admin_jobs_path(:location => location.name ))%></li>
+          <% end %>
+          <li><%= link_to("All Locations", admin_jobs_path(location: "All Locations"))%></li>
+        </ul>
+      </div>
+      <!--=== By category ====-->
+      <div class="dropdown btn-group clearfix">
+        <% if params[:category].present? %>
+        <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expended="true">
+          <%= params[:category] %> <span class="caret"></span>
+        </button>
+        <% else %>
+        <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
+          Categories <span class="caret"></span>
+        </button>
+        <% end %>
+        <ul class="dropdown-menu" selection aria-labelledby="dropdownMenuDivider">
+          <% @categorys.each do |category| %>
+          <li><%= link_to(category.name, admin_jobs_path(:category => category.name ))%></li>
+          <% end %>
+          <li><%= link_to("All Categories", admin_jobs_path(category: "All Categories"))%></li>
+        </ul>
+      </div>
+      <!--=== By Salary ====-->
+      <div class="dropdown btn-group clearfix">
+        <% if params[:wage].present? %>
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <%= params[:wage] %> <span class="caret"></span>
+        </button>
+        <% else %>
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Wages <span class="caret"></span>
+        </button>
+        <% end %>
+        <ul class="dropdown-menu" selection aria-labelledby="dropdownMenuDivider">
+          <li>
+            <%= link_to("0~3k", admin_jobs_path(:wage => "0~3k")) %>
+          </li>
+          <li>
+            <%= link_to("3~5k", admin_jobs_path(:wage => "3~5k")) %>
+          </li>
+          <li>
+            <%= link_to("5~7k", admin_jobs_path(:wage => "5~7k")) %>
+          </li>
+          <li>
+            <%= link_to("7~10k", admin_jobs_path(:wage => "7~10k")) %>
+          </li>
+        </ul>
+      </div>
+      <!--=== Add job ===-->
+      <div class="job">
+        <%= link_to("Add Job", new_admin_job_path, class: "btn btn-default pull-right action-btn")%>
+      </div>
+    </div>
+  </div>
+  <div class="admin-job-box">
+    <%if @jobs.length > 0 %>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <td>Title</td>
+          <td>Category</td>
+          <td>Company</td>
+          <td>Location</td>
+          <td>Wage</td>
+          <td>Resume/Collection</td>
+          <td>Time</td>
+          <td class="count">Job published: <span><%= @jobs.count %></span></td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @jobs.each do |job| %>
+        <tr class="job-list <%= render_job_hidden(job)%>">
+          <td class="title"> <span class="<%= render_job_status(job) %>"></span> <%= link_to(job.title, job_path(job))%></td>
+          <td class="<%= job.category.icon %>"> <%= job.category.name %></td>
+          <td><%= job.company %></td>
+          <td><span class="fa fa-map-marker"></span> <%= job.location.name %></td>
+          <td class="wage"><%= render_job_wage(job) %></td>
+          <td>
+            <%= link_to admin_job_resumes_path(job) do %><span class="<%= render_job_resumes(job) %>"></span> <%= job.resumes.count %><% end %> /
+            <span class="<%= render_job_collections(job)%>"></span> <%= job.collections.count %>
+          </td>
+          <td><%= job.created_at.to_formatted_s(:long_ordinal)%></td>
+          <td>
+            <!--=== Function buttons ===-->
+            <div class="action-box">
+              <%= link_to(edit_admin_job_path(job), class: "btn btn-md btn-default") do %>
+              <span class="fa fa-pencil"></span>
+              <% end %>
 
-<div class="pull-right">
-  <%= link_to("Add a job", new_admin_job_path, :class => "btn btn-default")%>
-</div>
-
-<table class="table table-boldered table-striped custab">
-
-  <thead>
-    <tr>
-      <td>Job Title</td>
-      <td>Resume Received</td>
-      <td>Lower Bound</td>
-      <td>Upper Bound</td>
-      <td>Manage</td>
-      <td>Published Time</td>
-    </tr>
-  </thead>
-
-  <% @jobs.each do |job| %>
-  <tr>
-
-    <td>
-      <%= render_job_status(job) %>
-      <%= link_to(job.title, admin_job_path(job))%>
-    </td>
-
-    <td> <%= link_to(job.resumes.count, admin_job_resumes_path(job)) %> </td>
-    <td> <%= job.wage_lower_bound %> </td>
-    <td> <%= job.wage_upper_bound%> </td>
-
-    <td> <%= link_to("Edit",edit_admin_job_path(job), class: "btn btn-xs btn-info")%> | <%= link_to("Destroy", job_path(job), :method => :delete, :data=> {:confirm => "Are you sure?"}, class: "btn btn-xs btn-danger")%> |
-      <% if job.is_hidden %>
-      <%= link_to("Publish", publish_admin_job_path(job), method: :post , class: "btn btn-xs btn-success")%>
-      <% else %>
-      <%= link_to("Hide", hide_admin_job_path(job), method: :post, class: "btn btn-xs btn-warning")%>
+              <% if job.is_hidden %>
+                <%= link_to(publish_admin_job_path(job), method: :post, class: "btn btn-md btn-default show-btn") do %>
+                <span class="fa fa-eye"></span>
+                <% end %>
+                <% else %>
+                <%= link_to(hide_admin_job_path(job), method: :post, class: "btn btn-md btn-default", data: { confirm: "Are you sure to hide this job?"}) do %>
+                <span class="fa fa-eye-slash"></span>
+                <% end %>
+              <% end %>
+            </div>
+          </td>
+        </tr>
       <% end %>
-    </td>
-
-    <td><%= job.created_at.to_formatted_s(:long_ordinal)%></td>
-  </tr>
-  <% end %>
-</table>
-
-</div>
-
-
-<!--=== Pagination  ====-->
-<div class="col-md-10 col-md-offset-1 job-bottom">
-  <div class="text-center">
-    <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+      </tbody>
+    </table>
+    <% else %>
+    <div class="no-data">
+      <h3>There is no job yet.</h3>
+    </div>
+    <% end %>
+  </div>
+  <div class="col-md-12 job-bottom">
+    <div class="text-center">
+      <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+    </div>
   </div>
 </div>

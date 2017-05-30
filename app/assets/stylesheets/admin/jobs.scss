@@ -105,6 +105,7 @@
 
   .admin-select-job-box{
     margin-top: 15px;
+    margin-left: -17px;
 
     button{
       width: 100px;
@@ -114,6 +115,23 @@
       background-color: #B6C9F2;
       color: #fff;
     }
+
+    .job{
+
+      .btn-default{
+        text-align: middle;
+        width: 13rem;
+        height: 4rem;
+        border-radius: 0.4rem;
+        margin-top: 2rem;
+        margin-right: -3.3rem;
+        font-size: 2rem;
+        padding-bottom: 3.3rem;
+
+      }
+
+    }
+
   }
 
 
@@ -132,7 +150,7 @@
   li{
     max-width: 225px;
     padding: 12.5px 15px 12.5px 15px;
-    background-color: #1A6561;
+    background-color: #333333;
     border: 1px solid #444;
     letter-spacing: 0.5px;
   }
@@ -141,6 +159,94 @@
     text-decoration: none;
   }
   a:hover{
-    color: #35CCC6;
+    color: #828282;
+    text-decoration: none;
   }
+}
+
+
+.contact .form-group .btn.btn-default {
+    background-color: transparent;
+    border-color: #ccc;
+    color: #121212;
+    font-weight: 600;
+    margin: 0;
+}
+
+.contact .form-group{
+    margin-bottom: 22px;
+}
+
+
+.admin-job-box{
+  margin-top: 5px;
+  min-height: 425px;
+
+  table{
+    box-shadow: 0 0 3px #999;
+  }
+
+  thead{
+    background-color: #eee;
+    font-size: 16px;
+  }
+
+  .hidden-box{
+    background-color: #eee;
+  }
+
+  .job-list{
+    margin-top: 15px;
+    font-size: 1.5rem;
+  }
+
+  .title{
+    font-size: 15px;
+  }
+
+  .count{
+    font-weight: 500;
+    color: #4A6BB5;
+
+    span{
+      font-family: sans-serif;
+      font-size: 18px;
+    }
+  }
+
+  .wage{
+    color: #FF7D0A;
+    font-weight: 600;
+  }
+
+  .resume{
+    background: #333;
+    width: 25px;
+  }
+
+  .action-box{
+    margin-top: -2.5px;
+    margin-bottom: -2.5px;
+  }
+
+  .show-btn{
+    background-color: #B6C9F2;
+    border: 1px solid #aaa;
+  }
+
+  .show-btn:hover{
+    opacity: 0.65;
+  }
+
+  .no-data{
+    margin-top: 150px;
+    margin-bottom: -125px;
+    text-align: center;
+    color: #555;
+  }
+}
+
+.job-bottom{
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
