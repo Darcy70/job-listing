@@ -18,8 +18,23 @@ Rails.application.routes.draw do
     resources :resumes
     end
 
-    resources :locations
-    resources :categories
+    resources :locations do
+      member do
+        post :publish
+        post :hide
+        post :up
+        post :down
+      end
+    end
+
+    resources :categories do
+      member do
+        post :publish
+        post :hide
+        post :up
+        post :down
+      end
+    end
   end
 
 

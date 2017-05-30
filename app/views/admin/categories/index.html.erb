@@ -1,2 +1,59 @@
-<h1>Admin::Categories#index</h1>
-<p>Find me in app/views/admin/categories/index.html.erb</p>
+<div class="col-md-10 col-md-offset-1 admin-box">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <td colspan="6" class="title-box">
+              <div class="title"><h2><span class="fa fa-cogs"></span> Categories</h2></div>
+              <div class="button"><%= link_to("New category", new_admin_category_path, class: "btn btn-default pull-right")%>  </div>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <% i = 1%>
+          <% @categorys.each do |category| %>
+          <% if i%2 == 1 %>
+          <tr>
+            <% end %>
+            <td class="name-box">No.<%= category.sort %> <span class="<%= category.icon %>"></span> <%= category.name %></td>
+            <td class="action-box">
+            <!--=== change the status ===-->
+            <div>
+              <%= link_to(up_admin_category_path(category), method: :post, class: "btn btn-default btn-md sort-btn") do %>
+              <span class="fa fa-angle-up"></span>
+              <% end %>
+              <%= link_to(down_admin_category_path(category), method: :post, class: "btn btn-md btn-default sort-btn") do %>
+              <span class="fa fa-angle-down"></span>
+              <% end %>
+              <!--=== lock status ===-->
+              <% if category.is_lock %>
+                <span class="fa fa-pencil btn btn-md btn-default lock-btn" disabled="disabled"></span>
+                <span class="fa fa-eye-slash btn btn-md btn-default lock-btn" disabled="disabled"></span>
+              <% else %>
+                <%= link_to(edit_admin_category_path(category), class: "btn btn-md btn-default") do %>
+                  <span class="fa fa-pencil" disabled="disabled"></span>
+                <% end %>
+                <!--=== Hidden status ====-->
+                <% if category.is_hidden %>
+                  <%= link_to(publish_admin_category_path(category), :method => :post, class: "btn btn-md btn-default show-btn") do %>
+                    <span class="fa fa-eye"></span>
+                  <% end %>
+                <% else %>
+                  <%= link_to(hide_admin_category_path(category), :method => :post, class: "btn btn-md btn-default") do %>
+                    <span class="fa fa-eye-slash"></span>
+                  <% end %>
+              <% end %>
+            <% end %>
+            </div>
+          </td>
+          <% if i%2 == 0 %>
+          </tr>
+          <% end %>
+          <% i +=1 %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -9,11 +9,12 @@ class ApplicationController < ActionController::Base
   end
 
 
-  def is_web_admin?
+  def is_website_admin?
     if !current_user.is_website_admin?
       flash[:alert] = "Sorry, You are not an Web Admin "
       redirect_to root_path
     end
   end
+
 
 end
