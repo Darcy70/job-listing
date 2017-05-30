@@ -1,2 +1,53 @@
-<h1>Admin::Locations#index</h1>
-<p>Find me in app/views/admin/locations/index.html.erb</p>
+<div class="col-md-10 col-md-offset-1 admin-box">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <td colspan="6" class="title-box">
+              <div class="title"><h2><span class="fa fa-location-arrow"></span> Location </h2></div>
+              <div class="button"><%= link_to("New location", new_admin_location_path, class: "btn btn-default pull-right")%></div>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <% i = 1 %>
+          <% @locations.each do |location| %>
+          <% if i%2 == 1 %>
+          <tr>
+            <% end %>
+            <td class="name-box"> No.<%= location.sort %> <%= location.name %></td>
+            <td>
+              <!--=== Location status ===-->
+              <div>
+                <%= link_to(up_admin_location_path(location), method: :post, class: "btn btn-md btn-default sort-btn") do %>
+                <span class="fa fa-angle-up"></span>
+                <% end %>
+                <%= link_to(down_admin_location_path(location), method: :post, class: "btn btn-md btn-default sort-btn") do %>
+                <span class="fa fa-angle-down"></span>
+                <% end %>
+                <%= link_to(edit_admin_location_path(location), class: "btn btn-md btn-default") do %>
+                <span class="fa fa-pencil"></span>
+                <% end %>
+                <!--=== Location Hidden status ===-->
+                <% if location.is_hidden %>
+                  <%= link_to(publish_admin_location_path(location), :method => :post, class: "btn btn-md btn-default show-btn") do %>
+                    <span class="fa fa-eye"></span>
+                  <% end %>
+                <% else %>
+                  <%= link_to(hide_admin_location_path(location), :method => :post, class: "btn btn-md btn-default") do %>
+                    <span class="fa fa-eye-slash"></span>
+                  <% end %>
+                <% end %>
+              </div>
+            </td>
+            <% if i%2 == 0 %>
+          </tr>
+          <% end %>
+          <% i += 1%>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
