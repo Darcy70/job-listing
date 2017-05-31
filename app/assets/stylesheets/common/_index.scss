@@ -32,6 +32,7 @@
     padding: 10px 20px;
     font-size: 20px;
     letter-spacing: 1px;
+    border-radius: 2px;
 }
 
 .btn.btn-primary-welcome:hover{
@@ -39,6 +40,7 @@
     border-color: #fff;
     border: bold;
     color: #fff;
+    border-radius: 2px;
 }
 
 /*===== experts part ====*/
@@ -74,6 +76,7 @@ p.index-contect{
 .our-experts{
     background-color: #F2F2F2;
     padding-top: 40px;
+    padding-bottom: 20px;
 
     p{
       letter-spacing: 0.5px;
@@ -86,8 +89,9 @@ p.index-contect{
 
     img{
       width: 550px;
-      align: center;
-      margin-bottom: 40px;
+      vertical-align: middle;
+      margin-bottom: 30px;
+      margin-top: 15px;
     }
 }
 .our-experts .expert-box{
@@ -166,8 +170,8 @@ p.index-contect{
 // Talk About us - the slide part
 
 .talk-about-us{
-    padding-bottom: 160px;
-    padding-top: 60px;
+    padding-bottom: 140px;
+    padding-top: 50px;
     color: #666;
 }
 

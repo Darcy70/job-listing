@@ -6,11 +6,11 @@
           <div class="navbar-header">
             <!--=== Mobile site ====-->
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-4" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
             <!--==== Logo =====-->
             <%= link_to root_path, class: "navbar-brand default-logo scroll" do %>
             <%= image_tag("arrow.png", class: "logo_img") %> Rocking
@@ -20,12 +20,11 @@
             <ul class="nav navbar-nav navbar-right">
               <li class="divider" role="separator"></li>
               <% if !current_user %>
-                <li><%= button_to("Sign up", new_user_registration_path, method: :get , class: "btn btn-default navbar-btn") %></li>
-                <li><%= button_to("Log in", new_user_session_path, method: :get , class: "btn btn-default navbar-btn") %></li>
+                <li><%= button_to("Sign up", new_user_registration_path, method: :get , class: "btn btn-default navbar-btn navbar-text") %></li>
+                <li><%= button_to("Log in", new_user_session_path, method: :get , class: "btn btn-default navbar-btn navbar-text") %></li>
               <% else %>
                 <li class="dropdown"></li>
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Hi,<%= current_user.name %>
-                  <b class="caret"></b>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Hi,<%= current_user.name %><b class="caret"></b>
                   </a>
                   <ul class="dropdown-menu">
                     <% if current_user.is_admin?%>
@@ -44,88 +43,5 @@
       </div>
     </div>
   </div>
-
-
-
-
-
-
-
-<!-- Popup window -->
-<!-- Sign in window -->
-<!-- <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-  <div class="modal-dialog" role="document">
-    <div class="loginmodal-container">
-      <h2 class="text-center" style="margin-bottom: 5rem; text: bold;">Log in</h2>
-      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-inputs">
-
-        <div class="input-group margin-bottom-sm">
-          <span class="input-group-addon">
-            <i class="fa fa-envelope fa-lg fa-fw"></i>
-          </span>
-          <%= f.input :email, required: true, autofocus: true, placeholder: "Your Email", label: false %>
-        </div>
-        <br>
-
-        <div class="input-group margin-bottom-sm">
-          <span class="input-group-addon">
-            <i class="fa fa-lock fa-lg fa-fw"></i>
-          </span>
-          <%= f.input :password, required: true, label: false, placeholder: "Your Password"%>
-        </div>
-
-        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-      </div>
-      <div class="form-actions">
-        <%= f.button :submit, "Log in" %>
-      </div>
-      <% end %>
-    </div>
-
-  </div>
-
-</div> -->
-<!-- Sign Up window -->
-<!-- <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-  <div class="modal-dialog">
-    <div class="loginmodal-container">
-      <h2 class="text-center" style="margin-bottom: 5rem; text: bold;">Sign up</h2>
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= f.error_notification %>
-      <div class="form-inputs">
-
-        <div class="input-group margin-bottom-sm">
-          <span class="input-group-addon">
-            <i class="fa fa-envelope fa-lg fa-fw"></i>
-          </span>
-          <%= f.input :email, required: true, autofocus: true, label: false, placeholder: "Your Email" %>
-        </div>
-        <br>
-        <div class="input-group margin-bottom-sm">
-          <span class="input-group-addon">
-            <i class="fa fa-lock fa-lg fa-fw"></i>
-          </span>
-          <%= f.input :password, required: true, label: false,placeholder: "Your Password", hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length )%>
-        </div>
-        <br>
-        <div class="input-group margin-bottom-sm">
-          <span class="input-group-addon">
-            <i class="fa fa-lock fa-lg fa-fw"></i>
-          </span>
-          <%= f.input :password_confirmation, required: true, label: false,placeholder: "Repeat Your Password" %>
-        </div>
-      </div>
-      <br>
-
-      <div class="form-actions" style="margin-top: 2rem;">
-        <%= f.button :submit, "Sign up"%>
-      </div>
-      <% end %>
-    </div>
-
-  </div>
-
-</div> -->
 
 </header>

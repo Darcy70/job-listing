@@ -98,7 +98,7 @@ body { padding-top: 70px; }
 .dropdown-toggle {
     display: inline-block;
     // padding-top: 20px;
-    margin-top: 15px;
+    // margin-top: 15px;
     text-decoration: none;
     color: #fff;
     font-size: 2rem;
@@ -107,7 +107,7 @@ body { padding-top: 70px; }
 .dropdown-toggle:hover {
     display: inline-block;
     // padding-top: 20px;
-    margin-top: 15px;
+    // margin-top: 15px;
     text-decoration: none;
     color: #F2F2F2;
     font-size: 2rem;
@@ -119,6 +119,7 @@ body { padding-top: 70px; }
 .navbar-nav {
   margin-top: 2px;
   margin-right: 3px;
+  padding-left: 1rem;
   // position: absolute;
   // top: 100%;
   // right: 0;
