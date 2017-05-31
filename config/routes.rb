@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       end
 
     resources :resumes
+
     end
 
     resources :locations do
@@ -45,6 +46,10 @@ Rails.application.routes.draw do
     member do
       post :add
       post :remove
+    end
+
+    collection do
+      get :search
     end
 
   end

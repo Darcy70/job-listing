@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
 
-  before_action :authenticate_user!, except:[:index, :show]
+  before_action :authenticate_user!, only:[:add, :remove]
+  before_action :validate_search_key, only: [:search]
 
   def index
 
@@ -60,39 +61,6 @@ class JobsController < ApplicationController
     end
   end
 
-
-
-  # def new
-  #   @job = Job.new
-  # end
-  #
-  # def create
-  #   @job = Job.new(job_params)
-  #   if @job.save
-  #     redirect_to(jobs_path)
-  #   else
-  #     render('new')
-  #   end
-  # end
-  #
-  # def edit
-  #   @job = Job.find(params[:id])
-  # end
-  #
-  # def update
-  #   @job = Job.find(params[:id])
-  #   if @job.update_attributes(job_params)
-  #     redirect_to(jobs_path)
-  #   else
-  #     render('edit')
-  #   end
-  # end
-  #
-  # def destroy
-  #   @job = Job.find(params[:id])
-  #   @job.destroy
-  # end
-
   def add
     @job = Job.find(params[:id])
     @job.user_id = current_user.id
@@ -110,12 +78,25 @@ class JobsController < ApplicationController
     redirect_to :back
   end
 
+  def search
+    if @query_string.present?
+      search_result = Job.joins(:location).ransack(@search_criteria).result(distinct: true)
+      @jobs = search_result.published.paginate(page: params[:page], per_page: 7)
+      @suggests = Job.published.random5
+    end
+  end
 
-  # private
-  #
-  # def job_params
-  #   params.require(:job).permit(:title, :description, :contact_email, :wage_lower_bound, :wage_upper_bound, :is_hidden)
-  # end
+
+protected
+
+  def validate_search_key
+    @query_string = params[:keyword].gsub(/\\|\'|\/|\?/, "") if params[:keyword].present?
+    @search_criteria = search_criteria(@query_string)
+  end
+
+  def search_criteria(query_string)
+    { :title_or_company_or_location_name_cont => query_string}
+  end
 
 
 end

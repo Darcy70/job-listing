@@ -65,7 +65,6 @@ body { padding-top: 70px; }
   font-weight: normal;
   padding-top: 13px;
   padding-left: 30px;
-
 }
 
 .navbar.default-menu{
@@ -79,10 +78,11 @@ body { padding-top: 70px; }
     -moz-box-shadow: 1px 1px 2px #333;
     -webkit-box-shadow: 1px 1px 2px #333;
 
+
     .logo_img {
         display: inline-block;
         margin-right: 10px;
-        margin-left: 30px;
+        margin-left: -20px;
         width: 47px;
         height: 47px;
         margin-top: -6px
@@ -91,14 +91,15 @@ body { padding-top: 70px; }
     .default-logo {
         letter-spacing: 1px;
         line-height: 40px;
-        margin-right: 15px;
+
+
     }
 }
 
 .dropdown-toggle {
     display: inline-block;
-    // padding-top: 20px;
-    // margin-top: 15px;
+    padding-top: 15px;
+    margin-right: -10px;
     text-decoration: none;
     color: #fff;
     font-size: 2rem;
@@ -133,7 +134,7 @@ body { padding-top: 70px; }
     border-radius: 4px;
     padding: 8px 25px;
     border: 1px solid #eee;
-    margin-left: 10px;
+    margin-right: -15px;
     background-color: #333;
     border-color: #333;
 }
@@ -201,7 +202,7 @@ body { padding-top: 70px; }
 
 
 .default-menu.menu-4 .dropdown-menu{
-    margin-top: 20px !important;
+    margin-top: 10px !important;
 }
 
 @media screen and (max-width: 768px){
@@ -255,4 +256,42 @@ body { padding-top: 70px; }
     // background-color: #fff;
     min-width: 150px;
     box-shadow: 0 5px 10px #aaa;
+}
+
+// search bar
+.search-box{
+  margin-top: 10px;
+  margin-right: 10px;
+  input{
+    min-width: 7rem !important;
+    min-height: 14px;
+    display: inline-block;
+
+  }
+}
+
+.search-error{
+  text-align: center;
+  min-height: 325px;
+  margin-top: 210px;
+  margin-bottom: 50px;
+  .btn-success{
+    border-radius: 3px;
+    margin-top: 2rem;
+  }
+
+}
+
+
+
+.no-job-data{
+  margin-top: 120px;
+  color: #555;
+  font-family: "Hiragino Sans GB","Microsoft Yahei",SimSun,Arial,"Helvetica Neue",Helvetica;
+  text-align: center;
+}
+
+
+.nav.navbar-nav.navbar-right .divider{
+  margin-top: 1.5rem;
 }
